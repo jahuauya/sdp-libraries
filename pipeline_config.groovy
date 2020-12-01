@@ -50,18 +50,15 @@ application_environments{
     dev{
         merge = true
         name = 'develop'
-        
     }
 
     test{
         merge = true
         name = 'test'
-      
     }
 
     prod{
         merge = true
         name = 'production'
-       
     }
 }
