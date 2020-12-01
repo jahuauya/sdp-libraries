@@ -8,11 +8,9 @@ libraries{
             registry    = "http://docker.pkg.github.com/boozallen/sdp-images"
             repository  = "boozallen/sdp-images"
             cred        = "github"
-            docker_args = "-v /tmp:/tmp"
+            docker_args = "-v /tmp/:/root/.m2"
         }
     }
-    
-   
     sonarqube{
         merge=true
         installation_name ='SonarQubeServer'
@@ -23,6 +21,10 @@ libraries{
         nexusVersion    = "nexus3"
         protocol        = "http"
         nexusUrl        = "10.226.12.45:8081"
+    }
+    notification{
+        override = true
+        destination = ""
     }
     
 }
