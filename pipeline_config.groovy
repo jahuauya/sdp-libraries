@@ -16,7 +16,7 @@ libraries{
         installation_name ='SonarQubeServer'
         credential_id     ='sonarqube'
     }
-    nexus{
+    nexus_sonatype{
         credential_id   = "nexus"
         nexusVersion    = "nexus3"
         protocol        = "http"
