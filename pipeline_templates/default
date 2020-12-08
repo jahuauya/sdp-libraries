@@ -1,4 +1,7 @@
-
+node {
+  echo "Template Default"
+  
+/*  
   on_branch to: feature, { 
     continuous_integration() 
   }
@@ -21,3 +24,5 @@
     build()
     //publish     prod
   }
+*/
+}
