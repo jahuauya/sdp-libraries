@@ -3,6 +3,7 @@ allow_scm_jenkinsfile = false
 
 libraries{
     merge = true
+    github
     sdp{
         images{
             registry    = "http://docker.pkg.github.com/boozallen/sdp-images"
