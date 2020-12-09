@@ -24,7 +24,8 @@ def call(){
         timeout_unit: "HOURS",
         stage_display_name: "SonarQube Analysis",
         unstash: [ "test-results" ],
-        cli_parameters: []
+        cli_parameters: [],
+        time_sleep: 30
     ]
 
     // whether or not to wait for the quality gate 
@@ -53,6 +54,8 @@ def call(){
     String timeout_unit = config.timeout_unit ?: defaults.timeout_unit
 
     ArrayList unstashList = config.unstash ?: defaults.unstash
+  
+    String time_sleep = config.time_sleep ?: defaults.time_sleep
 
     stage(stage_display_name){
         inside_sdp_image "sonar-scanner", {
@@ -100,6 +103,8 @@ def call(){
 
                 }
                 
+                sleep(time_sleep)
+              
                 if(wait){
                     timeout(time: timeout_duration, unit: timeout_unit) {
                         def qg = waitForQualityGate()
