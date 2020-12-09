@@ -25,7 +25,7 @@ def call(){
         stage_display_name: "SonarQube Analysis",
         unstash: [ "test-results" ],
         cli_parameters: [],
-        time_sleep: 0
+        time_sleep: 5
     ]
 
     // whether or not to wait for the quality gate 
