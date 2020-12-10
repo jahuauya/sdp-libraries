@@ -5,7 +5,7 @@ def call(){
             sh "pwd"
             dir(config.pomDirectory){
                 sh "pwd"
-            //sh "mvn  clean package -DskipTests=true"
+                sh "mvn  clean package -DskipTests=true"
             }
         }
     }
