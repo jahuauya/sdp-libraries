@@ -6,21 +6,24 @@ node {
   
   on_branch to: develop, {                              
     continuous_integration()
-    //publish   dev
+    publish   dev
     //deploy_to dev
+    email()
   }
 
   on_branch to: release, { 
     install()
     build()
-    //publish     test
+    publish  test
     //deploy_to test
+    email()
   }
   
   on_branch to: master,  { 
     install()
     build()
-    //publish     prod
+    publish prod
+    email()
   }
 
 }
