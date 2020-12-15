@@ -20,8 +20,6 @@ dir(config.pomDirectory){
         if(!artifactExists)
             error "*** File: ${artifactPath}, could not be found";
 
-
-
         artifacts = [
             // Artifact generated such as .jar, .ear and .war files.
             [artifactId: pom.artifactId,
@@ -35,12 +33,10 @@ dir(config.pomDirectory){
             type: "pom"]
         ]
 
-        repository      = app_env?.repository ?: config.repository
-
         args = [
-            repository : repository,
+            repository : app_env.repository,
             groupId    : pom.groupId,
-            version    : config.version,
+            version    : app_env.version,
             artifacts  : artifacts
         ]
             
