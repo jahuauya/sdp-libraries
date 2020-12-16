@@ -8,7 +8,6 @@ node {
     continuous_integration()
     publish   dev
     //deploy_to dev
-    email()
   }
 
   on_branch to: release, { 
@@ -16,14 +15,12 @@ node {
     build()
     publish  test
     //deploy_to test
-    email()
   }
   
   on_branch to: master,  { 
     install()
     build()
     publish prod
-    email()
   }
 
 }
