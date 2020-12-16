@@ -1,5 +1,5 @@
-//@Notify ({ ( (currentBuild.currentResult == 'FAILURE' && context.library != null) ||  (currentBuild.currentResult != 'FAILURE' && context.library == null) ) && config.to})
-@Notify
+@Notify ({ ( (currentBuild.currentResult == 'FAILURE' && context.library != null) ||  (currentBuild.currentResult != 'FAILURE' && context.library == null) ) && config.to})
+//@Notify
 void call(context) {
 
     emailext (
