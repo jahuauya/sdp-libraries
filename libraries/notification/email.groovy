@@ -1,4 +1,5 @@
-@Notify ({ ( (currentBuild.currentResult == 'FAILURE' && context.library != null) ||  (currentBuild.currentResult != 'FAILURE' && context.library == null) ) && config.to})
+//@Notify ({ ( (currentBuild.currentResult == 'FAILURE' && context.library != null) ||  (currentBuild.currentResult != 'FAILURE' && context.library == null) ) && config.to})
+@Notify ({})
 void call(context) {
 
     emailext (
@@ -9,7 +10,7 @@ void call(context) {
             <p>Library: ${context.library}
             <p>Step: ${context.step}
             <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME}]</a></p>""",
-        recipientProviders: [[$class: 'DevelopersRecipientProvider'], culprits(), developers(), requestor(), brokenBuildSuspects(), brokenTestsSuspects(), upstreamDevelopers()],
+        //recipientProviders: [[$class: 'DevelopersRecipientProvider'], culprits(), developers(), requestor(), brokenBuildSuspects(), brokenTestsSuspects(), upstreamDevelopers()],
         to: config.destination
     )
 }
