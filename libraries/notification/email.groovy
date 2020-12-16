@@ -8,7 +8,7 @@ void call(context) {
             <p>Pipeline Status: ${currentBuild.currentResult}</p>
             <p>Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'</p>
             
-            <p>Step: ${context.step}
+            
             <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME}]</a></p>""",
         //recipientProviders: [[$class: 'DevelopersRecipientProvider'], culprits(), developers(), requestor(), brokenBuildSuspects(), brokenTestsSuspects(), upstreamDevelopers()],
         to: config.destination
@@ -16,3 +16,4 @@ void call(context) {
 }
 
 //<p>Library: ${context.library}
+//<p>Step: ${context.step}
