@@ -1,1 +1,6 @@
+def call(){
+    stage("Deploy"){
+        echo ""      
+    }
+}
 
