@@ -52,16 +52,16 @@ application_environments{
     merge = true
     dev{
         merge = true
-        name = 'develop'
+        long_name = 'develop'
     }
 
     test{
         merge = true
-        name = 'test'
+        long_name = 'test'
     }
 
     prod{
         merge = true
-        name = 'production'
+        long_name = 'production'
     }
 }
