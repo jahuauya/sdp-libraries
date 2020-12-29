@@ -72,7 +72,9 @@ void call(app_env){
 
 void oc_login(ocp_url, token){
   try {
+    
     echo "Trying to log in via token..."
+    sleep(600)
     sh "oc login --insecure-skip-tls-verify ${ocp_url} --token=${token} > /dev/null"
   } catch (any){
     echo "Trying to log in via user/pass..."
