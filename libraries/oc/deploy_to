@@ -3,18 +3,9 @@ void call(app_env){
     // validate required parameters
 
     // configuration repository storing the chart
-    def config_repo = app_env.helm_configuration_repository ?:
-                      config.helm_configuration_repository  ?:
-                      {error "helm_configuration_repository not defined in library config or application environment config"}()
+    
 
-    // jenkins credential ID for user to access config repo
-    // definable in library spec or app env spec via "helm_configuration_repository_credential"
-    // or - a globally defined github credential at the root of the pipeline config "github_credential"
-    def git_cred = app_env.helm_configuration_repository_credential ?:
-                   config.helm_configuration_repository_credential  ?:
-                   pipelineConfig.github_credential              ?:
-                   {error "GitHub Credential For Configuration Repository Not Defined"}()
-
+   
     /*
        tiller namespace for this repository.
        can be specific in library spec or per application environment as "tiller_namespace"
