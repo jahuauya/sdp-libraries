@@ -5,9 +5,8 @@ node {
   }
   
   on_branch to: develop, {                              
-    //continuous_integration()
-    build()
-    //publish   dev
+    continuous_integration()
+    publish   dev
     deploy_to dev
   }
 
