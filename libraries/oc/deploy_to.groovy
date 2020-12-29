@@ -55,7 +55,7 @@ void call(app_env){
            
             sh "oc new-project ${tiller_namespace} || oc project ${tiller_namespace}"
             sh "oc new-build ${config.template} --name=${config.app} --binary=true || true"
-            sleep(120)
+            
             sh "oc start-build ${config.app}   --from-archive=${config.archiveWar} --follow=true --wait=true "
             sh "oc new-app ${config.app}  -e HTTP_PROXY=10.226.14.59:8080 --name  ${config.app} --as-deployment-config|| true"
             //sh "oc annotate namespace ${app_env.tiller_namespace} openshift.io/node-selector=ambiente=qa"
@@ -64,7 +64,7 @@ void call(app_env){
             //this.create_volumen_yaml(config.app)
             sh "oc apply -f ${values_file} || true"
             mountPath="/var/opt/teradata/daas-log4j/claim-ticket/"
-            sh "oc set volumes dc/${app_env.app}  --add --overwrite --name=${app_env.app} --mount-path=${mountPath}"
+            sh "oc set volumes dc/${config.app}  --add --overwrite --name=${config.app} --mount-path=${mountPath}"
           
         }
       }
