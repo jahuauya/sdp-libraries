@@ -52,8 +52,8 @@ void call(app_env){
             this.oc_login ocp_url, token
            
             sh "oc new-project ${tiller_namespace} || oc project ${tiller_namespace}"
-            sh "oc new-build ${config.template} --name=${app_env.app} --binary=true || true"
-            sh "oc start-build ${config.app}   --from-dir=. --follow=true --wait=true "
+            sh "oc new-build ${config.template} --name=${config.app} --binary=true || true"
+          sh "oc start-build ${config.app}   --from-dir=${config.binaryDirectory} --follow=true --wait=true "
             sh "oc new-app ${config.app}  -e HTTP_PROXY=10.226.14.59:8080 --name  ${config.app} --as-deployment-config|| true"
             //sh "oc annotate namespace ${app_env.tiller_namespace} openshift.io/node-selector=ambiente=qa"
             sh "oc expose svc/${config.app} || true"
