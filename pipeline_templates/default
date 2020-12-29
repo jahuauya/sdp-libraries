@@ -5,16 +5,17 @@ node {
   }
   
   on_branch to: develop, {                              
-    continuous_integration()
+    //continuous_integration()
+    build()
     publish   dev
-    //deploy_to dev
+    deploy_to dev
   }
 
   on_branch to: release, { 
     install()
     build()
-    publish  test
-    //deploy_to test
+    publish   test
+    deploy_to test
   }
   
   on_branch to: master,  { 
