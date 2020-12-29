@@ -44,6 +44,8 @@ void call(app_env){
   
    
 
+        //env.NODEJS_HOME = "oc oc"
+        //env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
 
       inside_sdp_image "openshift_helm", {
         //withCredentials([usernamePassword(credentialsId: tiller_credential, passwordVariable: 'token', usernameVariable: 'user')]) {
@@ -53,7 +55,7 @@ void call(app_env){
            
             sh "oc new-project ${tiller_namespace} || oc project ${tiller_namespace}"
             sh "oc new-build ${config.template} --name=${config.app} --binary=true || true"
-            sleep(600)
+            sleep(120)
             sh "oc start-build ${config.app}   --from-archive=${config.archiveWar} --follow=true --wait=true "
             sh "oc new-app ${config.app}  -e HTTP_PROXY=10.226.14.59:8080 --name  ${config.app} --as-deployment-config|| true"
             //sh "oc annotate namespace ${app_env.tiller_namespace} openshift.io/node-selector=ambiente=qa"
