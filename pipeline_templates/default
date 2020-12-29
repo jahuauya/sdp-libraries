@@ -7,7 +7,7 @@ node {
   on_branch to: develop, {                              
     //continuous_integration()
     build()
-    publish   dev
+    //publish   dev
     deploy_to dev
   }
 
