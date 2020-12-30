@@ -52,16 +52,24 @@ application_environments{
     merge = true
     dev{
         merge = true
-        long_name = 'develop'
+        short_name  = 'dev'
+        long_name   = 'develop'
+        repository  = "maven-snapshots"
     }
 
     test{
         merge = true
-        long_name = 'test'
+        short_name = 'qa'
+        long_name  = 'Certificación'
+        repository = "maven-releases"
+
     }
 
     prod{
         merge = true
-        long_name = 'production'
+        short_name = 'prod'
+        long_name  = 'production'
+        repository = "maven-master"
+
     }
 }
