@@ -4,14 +4,14 @@ allow_scm_jenkinsfile = false
 libraries{
     merge = true
     github
-    sdp{
+/*    sdp{
         images{
             registry    = "http://docker.pkg.github.com/boozallen/sdp-images"
             repository  = "boozallen/sdp-images"
             cred        = "github"
             docker_args = "-v /tmp/.m2:/root/.m2 -v /tmp/.sonar:/root/.sonar"
         }
-    }
+    }*/
     sonarqube{
         merge=true
         installation_name ='sonarqube'
