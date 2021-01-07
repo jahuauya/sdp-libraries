@@ -14,14 +14,14 @@ libraries{
     }
     sonarqube{
         merge=true
-        installation_name ='SonarQubeServer'
-        credential_id     ='sonarqube'
+        installation_name ='sonarqube'
+        credential_id     ='tokensonarqube'
     }
     nexus_sonatype{
-        credential_id   = "nexus"
+        credential_id   = "nexus-credentials"
         nexusVersion    = "nexus3"
         protocol        = "http"
-        nexusUrl        = "10.226.12.45:8081"
+        nexusUrl        = "192.168.1.20:8083"
     }
     notification{
         override = true
